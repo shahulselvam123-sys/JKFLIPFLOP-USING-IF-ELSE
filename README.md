@@ -15,7 +15,7 @@ Quartus prime
 JK flip-flop is the modified version of SR flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of JK flip-flop is shown in the following figure.
 
 ![image](https://github.com/naavaneetha/JKFLIPFLOP-USING-IF-ELSE/assets/154305477/a649c30b-232b-4558-b188-fd6c09845180)
-
+   
 
 This circuit has two inputs J & K and two outputs Qtt & Qtt’. The operation of JK flip-flop is similar to SR flip-flop. Here, we considered the inputs of SR flip-flop as S = J Qtt’ and R = KQtt in order to utilize the modified SR flip-flop for 4 combinations of inputs. The following table shows the state table of JK flip-flop.
 
@@ -33,16 +33,38 @@ By using three variable K-Map, we can get the simplified expression for next sta
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
 **Procedure**
-
-/* write all the steps invloved */
+Step 1 : Go to quartus software.
+Step 2 : Set new environment.
+Step 3 : Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
+Step 4 : Run the program.
+Step 5 : Give inputs in the waveform table.
+Step 6 : Run the program.
 
 **PROGRAM**
+```
+module jk(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q,qbar;
+initial 
+begin
+q=1'b0;
+q=1'b1;
+end 
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
-
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
+endmodule
+```
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1f016599-c777-4262-afd3-d3825d8cb953" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6faeef40-42fc-4665-9cbd-60d8b68b358e" />
+
 **RESULTS**
+Thus , To implement  JK flipflop using verilog and validating their functionality using their functional tables
+
